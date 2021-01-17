@@ -1,3 +1,5 @@
+from payment import card
+
 class BasePaymentGateway:
 	def __init__(self, repeat=0):
 		self.repeat = repeat
