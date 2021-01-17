@@ -5,7 +5,7 @@ from application.services.payment import Card, PaymentGateway
 blueprint = Blueprint("views", __name__, url_prefix="/")
 
 
-@blueprint.route("/ProcessPayment", methods=['POST'])
+@blueprint.route("/ProcessPayment", methods=['POST' , 'GET'])
 def payment():
 
 	if request.method == 'POST':
