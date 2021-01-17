@@ -27,6 +27,21 @@ class BasePaymentGateway:
 			self.repeat -= 1
 		return False
 
+class CheapBasePaymentGateway(BasePaymentGateway):
+	def __init__(self, repeat=0):
+		super(CheapBasePaymentGateway, self).__init__(repeat)
+		self.gateway = "CheapBasePaymentGateway"
+	
+	def __repr__(self):
+		return "<CheapBasePaymentGateway>"
+
+class ExpensiveBasePaymentGateway(BasePaymentGateway):
+	def __init__(self, repeat=1):
+		super(ExpensiveBasePaymentGateway, self).__init__(repeat)
+		self.gateway = "ExpensiveBasePaymentGateway"
+	
+	def __repr__(self):
+		return "<ExpensiveBasePaymentGateway>"
 
 class PremiumBasePaymentGateway(BasePaymentGateway):
 	def __init__(self, repeat=3):
@@ -37,25 +52,7 @@ class PremiumBasePaymentGateway(BasePaymentGateway):
 		return "<PremiumBasePaymentGateway>"
 
 
-class ExpensiveBasePaymentGateway(BasePaymentGateway):
-	def __init__(self, repeat=1):
-		super(ExpensiveBasePaymentGateway, self).__init__(repeat)
-		self.gateway = "ExpensiveBasePaymentGateway"
-	
-	def __repr__(self):
-		return "<ExpensiveBasePaymentGateway>"
-
-
-class CheapBasePaymentGateway(BasePaymentGateway):
-	def __init__(self, repeat=0):
-		super(CheapBasePaymentGateway, self).__init__(repeat)
-		self.gateway = "CheapBasePaymentGateway"
-	
-	def __repr__(self):
-		return "<CheapBasePaymentGateway>"
-
-
-class ExternalPayment:
+class PaymentGateway:
 	def __init__(self, amount, card_details=None):
 		self.amount = amount
 		self.card_details = card_details
