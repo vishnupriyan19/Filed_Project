@@ -1,6 +1,6 @@
 from flask import Blueprint, request, abort, jsonify
 import json
-from application.services.payment import Card, PaymentGateway
+from payment import Card, PaymentGateway
 
 blueprint = Blueprint("views", __name__, url_prefix="/")
 
